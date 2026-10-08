@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="دفتر شعر نیما اکبری — منم نیمه ماه تاریک شب‌ها">
     <title>دفتر شعر نیما اکبری</title>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
         }
 
         body {
@@ -21,7 +27,13 @@
             font-weight: 500;
         }
 
-        /* ===== آسمان شب کاملاً سیاه ===== */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #f5e6a8, #c9b3ff);
+            border-radius: 10px;
+        }
+
         .night-sky {
             position: fixed;
             top: 0;
@@ -46,46 +58,100 @@
             50% { opacity: 0.9; transform: scale(1.3); }
         }
 
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 9999;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            list-style: none;
+        }
+
+        nav a {
+            color: #b8b8d0;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s;
+            position: relative;
+            padding: 5px 0;
+            cursor: pointer;
+        }
+
+        nav a:hover { color: #f5e6a8; }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 1px;
+            background: #f5e6a8;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after { width: 100%; }
+
         header {
             position: relative;
-            padding: 80px 20px 60px;
+            padding: 160px 20px 80px;
             text-align: center;
             overflow: hidden;
         }
 
-        /* ===== هلال ماه ساده ===== */
+        /* ===== ماه واقعی ===== */
         .moon {
-            width: 120px;
-            height: 120px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             margin: 0 auto 40px;
             position: relative;
-            background: transparent;
-            box-shadow: -20px 10px 0 0 #f5e6a8;
-            transform: rotate(-20deg);
+            background-image: url('moon.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #1a1a2e;
+            box-shadow: 
+                0 0 50px rgba(255, 248, 220, 0.5),
+                0 0 100px rgba(255, 245, 200, 0.25),
+                0 0 160px rgba(255, 245, 200, 0.1);
             animation: moonGlow 6s infinite ease-in-out;
         }
 
         @keyframes moonGlow {
             0%, 100% {
-                box-shadow: -20px 10px 0 0 #f5e6a8;
-                filter: drop-shadow(0 0 20px rgba(245, 230, 168, 0.4));
+                box-shadow: 
+                    0 0 50px rgba(255, 248, 220, 0.5),
+                    0 0 100px rgba(255, 245, 200, 0.25),
+                    0 0 160px rgba(255, 245, 200, 0.1);
             }
             50% {
-                box-shadow: -20px 10px 0 0 #fff8dc;
-                filter: drop-shadow(0 0 35px rgba(245, 230, 168, 0.7));
+                box-shadow: 
+                    0 0 70px rgba(255, 248, 220, 0.75),
+                    0 0 140px rgba(255, 245, 200, 0.4),
+                    0 0 200px rgba(255, 245, 200, 0.2);
             }
         }
 
         h1 {
-            font-size: 2.6rem;
+            font-size: 2.8rem;
             font-weight: 900;
-            letter-spacing: 0.5px;
             background: linear-gradient(90deg, #f5e6a8, #fff, #c9b3ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .subtitle {
@@ -99,26 +165,51 @@
             width: 80px;
             height: 1px;
             background: linear-gradient(90deg, transparent, #f5e6a8, transparent);
-            margin: 30px auto 0;
+            margin: 35px auto 0;
         }
 
-        main {
-            max-width: 720px;
+        section {
+            max-width: 750px;
             margin: 0 auto;
-            padding: 40px 25px 100px;
+            padding: 60px 25px 100px;
         }
 
-        /* ===== کارت‌های شعر ===== */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            color: #f5e6a8;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #f5e6a8, #c9b3ff);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
         .poem-card {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 18px;
-            padding: 40px 35px;
-            margin-bottom: 45px;
+            border-radius: 20px;
+            padding: 45px 40px 35px;
+            margin-bottom: 40px;
             backdrop-filter: blur(8px);
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .poem-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .poem-card::before {
@@ -129,20 +220,20 @@
             width: 3px;
             height: 100%;
             background: linear-gradient(180deg, #f5e6a8, #c9b3ff, transparent);
-            opacity: 0.5;
+            opacity: 0.6;
         }
 
         .poem-card:hover {
             background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(245, 230, 168, 0.2);
-            transform: translateY(-4px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+            border-color: rgba(245, 230, 168, 0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
         }
 
         .poem-title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: #f5e6a8;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             font-weight: 700;
         }
 
@@ -154,40 +245,143 @@
             font-weight: 500;
         }
 
+        .poem-signature {
+            text-align: left;
+            font-size: 0.85rem;
+            color: #f5e6a8;
+            font-weight: 500;
+            margin-top: 25px;
+            opacity: 0.85;
+            letter-spacing: 0.5px;
+        }
+
+        .about-section {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 1.05rem;
+            color: #c8c8d8;
+            line-height: 2.3;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #b8b8d0;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link svg {
+            width: 26px;
+            height: 26px;
+            fill: currentColor;
+        }
+
+        .social-link:hover {
+            background: rgba(245, 230, 168, 0.1);
+            border-color: #f5e6a8;
+            color: #f5e6a8;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(245, 230, 168, 0.15);
+        }
+
         footer {
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
             color: #44445a;
             font-size: 0.9rem;
             font-weight: 500;
             border-top: 1px solid rgba(255, 255, 255, 0.03);
         }
 
-        footer span {
+        footer span { color: #f5e6a8; }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(245, 230, 168, 0.1);
+            border: 1px solid rgba(245, 230, 168, 0.3);
             color: #f5e6a8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            font-size: 1.3rem;
+            z-index: 99;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: rgba(245, 230, 168, 0.2);
+            transform: translateY(-3px);
         }
 
         @media (max-width: 600px) {
-            header { padding: 60px 15px 40px; }
-            h1 { font-size: 1.9rem; }
+            nav { padding: 12px 15px; }
+            nav ul { gap: 20px; }
+            nav a { font-size: 0.9rem; }
+            header { padding: 120px 15px 50px; }
+            h1 { font-size: 2rem; }
             .moon {
-                width: 90px;
-                height: 90px;
-                box-shadow: -15px 8px 0 0 #f5e6a8;
+                width: 110px;
+                height: 110px;
+                box-shadow: 
+                    0 0 35px rgba(255, 248, 220, 0.5),
+                    0 0 70px rgba(255, 245, 200, 0.25);
             }
             @keyframes moonGlow {
                 0%, 100% {
-                    box-shadow: -15px 8px 0 0 #f5e6a8;
-                    filter: drop-shadow(0 0 15px rgba(245, 230, 168, 0.4));
+                    box-shadow: 
+                        0 0 35px rgba(255, 248, 220, 0.5),
+                        0 0 70px rgba(255, 245, 200, 0.25);
                 }
                 50% {
-                    box-shadow: -15px 8px 0 0 #fff8dc;
-                    filter: drop-shadow(0 0 25px rgba(245, 230, 168, 0.7));
+                    box-shadow: 
+                        0 0 50px rgba(255, 248, 220, 0.75),
+                        0 0 100px rgba(255, 245, 200, 0.4);
                 }
             }
             .subtitle { font-size: 0.95rem; }
-            .poem-card { padding: 28px 22px; }
+            section { padding: 40px 15px 80px; }
+            .section-title { font-size: 1.5rem; }
+            .poem-card { padding: 30px 25px 25px; }
             .poem-text { font-size: 1.05rem; }
+            .poem-signature { font-size: 0.8rem; margin-top: 20px; }
+            .about-section { padding: 35px 25px; }
+            .social-link { width: 50px; height: 50px; }
+            .social-link svg { width: 22px; height: 22px; }
+            .back-to-top { bottom: 20px; left: 20px; width: 45px; height: 45px; }
         }
     </style>
 </head>
@@ -195,54 +389,102 @@
 
     <div class="night-sky" id="sky"></div>
 
-    <header>
+    <nav>
+        <ul>
+            <li><a href="#home">خانه</a></li>
+            <li><a href="#poems">اشعار</a></li>
+            <li><a href="#about">درباره من</a></li>
+            <li><a href="#contact">ارتباط با من</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
         <div class="moon"></div>
         <h1>دفتر شعر نیما اکبری</h1>
         <p class="subtitle">منم نیمه ماه تاریک شب‌ها</p>
         <div class="divider"></div>
     </header>
 
-    <main>
+    <section id="poems">
+        <h2 class="section-title">اشعار</h2>
+
         <div class="poem-card">
             <div class="poem-title">شاعر دیوانه</div>
             <div class="poem-text">
-دل در طلب یار و او با همه بیگانه 
+دل در طلب یار و او با همه بیگانه
 من در عطش مستی او باده میخانه
-آموخته ام هرگز لیکن که نمیتابم 
-این درس دو پهلو را در مکتب رندانه 
-ما وحدت اضدادیم در دایره تقدیر 
-من پیله زندان و او باله پروانه 
-او بلبل مستانی در باغچه آغاز 
+آموخته ام هرگز لیکن که نمیتابم
+این درس دو پهلو را در مکتب رندانه
+ما وحدت اضدادیم در دایره تقدیر
+من پیله زندان و او باله پروانه
+او بلبل مستانی در باغچه آغاز
 من فاخته تنها در گوشه ویرانه
 او روشنی ماه است در شامگه مستان
 من سایه خورشیدم در روز زمستانه
-شاید که وصال ما در شعر دهد معنا 
+شاید که وصال ما در شعر دهد معنا
 او وزن غزل ها و من شاعر دیوانه
-
             </div>
+            <div class="poem-signature">نیما اکبری</div>
         </div>
 
         <div class="poem-card">
             <div class="poem-title">نیمه تاریک ماه</div>
             <div class="poem-text">
-شب در گذر و به آسمان نیست نگاه 
-از درد فراق چاره ای نیست جز آه 
-باید که به گوشه فراموشی رفت 
-از دست دلی که خون شد از تیر گناه 
-در اوج سعادتی که لبریزم بود 
-موجی شدم و هیچ نمانده است پناه 
-ای فال چه خواهی ز من بی تقدیر 
+شب در گذر و به آسمان نیست نگاه
+از درد فراق چاره ای نیست جز آه
+باید که به گوشه فراموشی رفت
+از دست دلی که خون شد از تیر گناه
+در اوج سعادتی که لبریزم بود
+موجی شدم و هیچ نمانده است پناه
+ای فال چه خواهی ز من بی تقدیر
 رنگی زده ام به بوم شب تر ز سیاه
-تو همان مهر فروزنده آفاق شدی 
+ای که خورشید فروزنده آفاق تویی
 من همانم آن نشان نیمه تاریک ماه
+            </div>
+            <div class="poem-signature">نیما اکبری</div>
+        </div>
+    </section>
 
+    <section id="about">
+        <h2 class="section-title">درباره من</h2>
+        <div class="about-section">
+            <p class="about-text">
+                سلام، من نیما اکبری هستم.<br>
+                شاعر شب‌ها و ماه.<br>
+                اینجا دفتر شعر منه؛ جایی که کلمات در تاریکی می‌درخشند.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">ارتباط با من</h2>
+        <div class="about-section">
+            <p class="about-text">از راه‌های زیر می‌تونی با من در ارتباط باشی</p>
+            <div class="social-links">
+                <a href="https://instagram.com/nimaakbari404" target="_blank" class="social-link" title="اینستاگرام">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                </a>
+                <a href="https://t.me/nimaakbari404" target="_blank" class="social-link" title="تلگرام">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
+                </a>
+                <a href="mailto:nimaakbari404@gmail.com" class="social-link" title="ایمیل">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
             </div>
         </div>
-    </main>
+    </section>
 
     <footer>
-        ساخته شده با <span>شب</span> و <span>شعر</span> — © نیما اکبری
+        ساخته شده با <span>شب</span> و <span>شعر</span> — © نیما اکبری ۱۴۰۳
     </footer>
+
+    <div class="back-to-top" id="backToTop">↑</div>
 
     <script>
         const sky = document.getElementById('sky');
@@ -258,6 +500,47 @@
             star.style.animationDuration = (Math.random() * 3 + 3) + 's';
             sky.appendChild(star);
         }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.poem-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    const offset = 80;
+                    const targetPosition = targetSection.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     </script>
 
 </body>
