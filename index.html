@@ -45,17 +45,31 @@
             overflow: hidden;
         }
 
+        /* ===== ستاره‌ها با درخشش قوی‌تر ===== */
         .star {
             position: absolute;
             background: #fff;
             border-radius: 50%;
-            opacity: 0.6;
+            opacity: 0.5;
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0.9),
+                        0 0 12px rgba(255, 255, 255, 0.5);
             animation: twinkle 4s infinite ease-in-out;
         }
 
         @keyframes twinkle {
-            0%, 100% { opacity: 0.15; transform: scale(1); }
-            50% { opacity: 0.9; transform: scale(1.3); }
+            0%, 100% { 
+                opacity: 0.15; 
+                transform: scale(1);
+                box-shadow: 0 0 3px rgba(255, 255, 255, 0.5),
+                            0 0 6px rgba(255, 255, 255, 0.2);
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1.5);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 1),
+                            0 0 20px rgba(255, 255, 255, 0.6),
+                            0 0 30px rgba(255, 255, 255, 0.3);
+            }
         }
 
         nav {
@@ -110,7 +124,7 @@
             overflow: hidden;
         }
 
-        /* ===== ماه واقعی ===== */
+        /* ===== ماه واقعی بدون درخشش ===== */
         .moon {
             width: 160px;
             height: 160px;
@@ -122,26 +136,7 @@
             background-position: center;
             background-repeat: no-repeat;
             background-color: #1a1a2e;
-            box-shadow: 
-                0 0 50px rgba(255, 248, 220, 0.5),
-                0 0 100px rgba(255, 245, 200, 0.25),
-                0 0 160px rgba(255, 245, 200, 0.1);
-            animation: moonGlow 6s infinite ease-in-out;
-        }
-
-        @keyframes moonGlow {
-            0%, 100% {
-                box-shadow: 
-                    0 0 50px rgba(255, 248, 220, 0.5),
-                    0 0 100px rgba(255, 245, 200, 0.25),
-                    0 0 160px rgba(255, 245, 200, 0.1);
-            }
-            50% {
-                box-shadow: 
-                    0 0 70px rgba(255, 248, 220, 0.75),
-                    0 0 140px rgba(255, 245, 200, 0.4),
-                    0 0 200px rgba(255, 245, 200, 0.2);
-            }
+            /* بدون box-shadow و بدون انیمیشن درخشش */
         }
 
         h1 {
@@ -356,21 +351,6 @@
             .moon {
                 width: 110px;
                 height: 110px;
-                box-shadow: 
-                    0 0 35px rgba(255, 248, 220, 0.5),
-                    0 0 70px rgba(255, 245, 200, 0.25);
-            }
-            @keyframes moonGlow {
-                0%, 100% {
-                    box-shadow: 
-                        0 0 35px rgba(255, 248, 220, 0.5),
-                        0 0 70px rgba(255, 245, 200, 0.25);
-                }
-                50% {
-                    box-shadow: 
-                        0 0 50px rgba(255, 248, 220, 0.75),
-                        0 0 100px rgba(255, 245, 200, 0.4);
-                }
             }
             .subtitle { font-size: 0.95rem; }
             section { padding: 40px 15px 80px; }
@@ -450,7 +430,7 @@
         <div class="about-section">
             <p class="about-text">
                 سلام، من نیما اکبری هستم.<br>
-                شاعر شب‌ها و ماه.<br>
+               متولد خرداد ماه یک هزار و سیصد و هفتاد و هفت شمسی.<br>
                 اینجا دفتر شعر منه؛ جایی که کلمات در تاریکی می‌درخشند.
             </p>
         </div>
