@@ -137,7 +137,6 @@
             background-position: center;
             background-repeat: no-repeat;
             background-color: #1a1a2e;
-            /* بدون box-shadow و بدون انیمیشن درخشش */
         }
 
         h1 {
@@ -231,14 +230,18 @@
             color: #f5e6a8;
             margin-bottom: 25px;
             font-weight: 700;
+            text-align: center;
         }
 
         .poem-text {
-            font-size: 1.15rem;
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+            font-size: 1.2rem;
             color: #e0e0f0;
-            line-height: 2.4;
+            line-height: 2.8;
             white-space: pre-line;
-            font-weight: 500;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            text-align: center;
         }
 
         .poem-signature {
@@ -343,7 +346,7 @@
             transform: translateY(-3px);
         }
 
-              /* ===== موبایل: بهینه‌سازی برای سرعت ===== */
+        /* ===== موبایل: بهینه‌سازی برای سرعت ===== */
         @media (max-width: 600px) {
             nav { padding: 12px 15px; }
             nav ul { gap: 20px; }
@@ -358,7 +361,10 @@
             section { padding: 40px 15px 80px; }
             .section-title { font-size: 1.5rem; }
             .poem-card { padding: 30px 25px 25px; }
-            .poem-text { font-size: 1.05rem; }
+            .poem-text { 
+                font-size: 1.1rem; 
+                line-height: 2.6; 
+            }
             .poem-signature { font-size: 0.8rem; margin-top: 20px; }
             .about-section { padding: 35px 25px; }
             .social-link { width: 50px; height: 50px; }
@@ -431,8 +437,7 @@
     <section id="poems">
         <h2 class="section-title">اشعار</h2>
 
-
- <div class="poem-card">
+        <div class="poem-card">
             <div class="poem-title">دیوان</div>
             <div class="poem-text">
 هر چه آرامِ نگاهت دل به سامان می‌کند
@@ -451,10 +456,9 @@
 آنچه باید گفت را آزرم پنهان می‌کند
             </div>
             <div class="poem-signature">نیما اکبری</div>
-        </div> 
+        </div>
 
-
-         <div class="poem-card">
+        <div class="poem-card">
             <div class="poem-title">سیمرغ</div>
             <div class="poem-text">
 شامی به دل زارم افتاد رموزی
@@ -490,14 +494,11 @@
 مرا باور کن این عشق است با باریکهٕ عصیان
 منم با خون دل ها و شراب سرخ در دستت
 تو آنجا در طرب شادی من اینجا در تبت ویران
-
             </div>
             <div class="poem-signature">نیما اکبری</div>
         </div>
-        
 
-
- <div class="poem-card">
+        <div class="poem-card">
             <div class="poem-title">سرو روان</div>
             <div class="poem-text">
 یار من در نظرت عشق یعنی ویرانی 
@@ -512,13 +513,11 @@
 همه دردی تو ولی بر دل من درمانی
 سال ها رفت و من امروز همان عاشق زارم
 تو همان سرو روانی و همان ، میمانی
-
             </div>
             <div class="poem-signature">نیما اکبری</div>
         </div>
 
-        
-          <div class="poem-card">
+        <div class="poem-card">
             <div class="poem-title">خزان</div>
             <div class="poem-text">
 میکشد آتش به جانم میکشم آتش زمان را
@@ -531,12 +530,11 @@
 با جفا بر دل نشاندم آذر فصل خزان را
 با همه دوری کماکان در دلم هستی چو جانم
 میکشم آتش زمانی که کشد آتش به جان را
-
             </div>
             <div class="poem-signature">نیما اکبری</div>
         </div>
 
-  <div class="poem-card">
+        <div class="poem-card">
             <div class="poem-title">کافه کهنه</div>
             <div class="poem-text">
 تو همون کافه کهنه سر میز جنب دیوار
@@ -556,7 +554,7 @@
             </div>
             <div class="poem-signature">نیما اکبری</div>
         </div>
-        
+
         <div class="poem-card">
             <div class="poem-title">شاعر دیوانه</div>
             <div class="poem-text">
@@ -576,7 +574,7 @@
             <div class="poem-signature">نیما اکبری</div>
         </div>
 
-         <div class="poem-card">
+        <div class="poem-card">
             <div class="poem-title">کشتی</div>
             <div class="poem-text">
 کشتی شکسته و بند ها هم گسسته است
@@ -592,9 +590,8 @@
             </div>
             <div class="poem-signature">نیما اکبری</div>
         </div>
-        
 
-         <div class="poem-card">
+        <div class="poem-card">
             <div class="poem-title">سقوط</div>
             <div class="poem-text">
 سرد و بی روحم دلیل اضطرابم باش
@@ -610,9 +607,6 @@
             </div>
             <div class="poem-signature">نیما اکبری</div>
         </div>
-
-
-        
 
         <div class="poem-card">
             <div class="poem-title">نیمه تاریک ماه</div>
@@ -631,7 +625,7 @@
             <div class="poem-signature">نیما اکبری</div>
         </div>
 
- <div class="poem-card">
+        <div class="poem-card">
             <div class="poem-title">ماه کامل</div>
             <div class="poem-text">
 با نور کامل ماه رازیست در دل من 
@@ -644,17 +638,13 @@
 گویی دریغ بودست این سعی باطل من
 لب را فرو نشاندم از لرزشش تو خواندی
 این راز برملا شد ای ماه کامل من
-
             </div>
             <div class="poem-signature">نیما اکبری</div>
         </div>
 
-
-        
- <div class="poem-card">
+        <div class="poem-card">
             <div class="poem-title">دختر تابستان</div>
             <div class="poem-text">
-                
 گردنم از حلقه موی تو نازکتر درین دارستان 
 یخ زدم از دوری تو ، دختر تابستان
 شاخه های بید اسرار دلم بر باد داد 
@@ -669,13 +659,11 @@
 خواه دنیایی از آنم خواه یک شارستان
 میل وصلت شوکرانی بود در جام دلم
 یا شوم راهی کویت یا دل کوهستان
-
             </div>
             <div class="poem-signature">نیما اکبری</div>
         </div>
 
-
-         <div class="poem-card">
+        <div class="poem-card">
             <div class="poem-title">درد ازلی</div>
             <div class="poem-text">
 حد بزن من را کمی هم بیشتر 
@@ -692,8 +680,7 @@
             <div class="poem-signature">نیما اکبری</div>
         </div>
 
-
-          <div class="poem-card">
+        <div class="poem-card">
             <div class="poem-title">اشتباه تلخ</div>
             <div class="poem-text">
 به روی ما نظر کن تا بفهمی عشق زیبا نیست 
@@ -720,7 +707,7 @@
             <div class="poem-signature">نیما اکبری</div>
         </div>
 
-          <div class="poem-card">
+        <div class="poem-card">
             <div class="poem-title">کفر</div>
             <div class="poem-text">
 عاشقان مشتاق بر وصلند ، میدانی چرا ؟
@@ -737,7 +724,7 @@
             <div class="poem-signature">نیما اکبری</div>
         </div>
 
-   <div class="poem-card">
+        <div class="poem-card">
             <div class="poem-title">تمنای وصال</div>
             <div class="poem-text">
 باده در دست نشستم به تمنای وصال
@@ -753,9 +740,7 @@
             </div>
             <div class="poem-signature">نیما اکبری</div>
         </div>
-        
 
-        
     </section>
 
     <section id="about">
@@ -763,9 +748,8 @@
         <div class="about-section">
             <p class="about-text">
                 سلام، من نیما اکبری هستم.<br>
-            متولد خرداد ماه یک هزار و سیصد و هفتاد و هفت .<br>
-            به باور من شعر پارسی گوهر ارزشمندیست که از نیاکانمان به ما سپرده شده است ، از این رو تلاش میکنم تا در پاسداری از آن عضو سودمندی باشم. 
-          
+                متولد خرداد ماه یک هزار و سیصد و هفتاد و هفت.<br>
+                به باور من شعر پارسی گوهر ارزشمندیست که از نیاکانمان به ما سپرده شده است، از این رو تلاش می‌کنم تا در پاسداری از آن عضو سودمندی باشم.
             </p>
         </div>
     </section>
@@ -795,13 +779,13 @@
     </section>
 
     <footer>
-        ساخته شده با <span>شب</span> و <span>شعر</span> —  نیما اکبری 
+        ساخته شده با <span>شب</span> و <span>شعر</span> — نیما اکبری
     </footer>
 
     <div class="back-to-top" id="backToTop">↑</div>
 
     <script>
-               // ===== ستاره‌ها: تعداد کمتر در موبایل =====
+        // ===== ستاره‌ها: تعداد کمتر در موبایل =====
         const sky = document.getElementById('sky');
         const isMobile = window.innerWidth <= 600;
         const starCount = isMobile ? 35 : 120;
@@ -838,6 +822,7 @@
             });
         }
 
+        // ===== اسکرول نرم =====
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -854,6 +839,7 @@
             });
         });
 
+        // ===== دکمه بازگشت به بالا =====
         const backToTop = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 400) {
@@ -861,7 +847,7 @@
             } else {
                 backToTop.classList.remove('visible');
             }
-        });
+        }, { passive: true });
 
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
